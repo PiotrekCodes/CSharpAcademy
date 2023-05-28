@@ -3,31 +3,6 @@ string name = GetName();
 
 Menu(name);
 
-string gameSelected = Console.ReadLine();
-
-switch (gameSelected.Trim().ToLower())
-{
-    case "a":
-        AdditionGame("Addition game: ");
-        break;
-    case "s":
-        SubtractionGame("Subtraction game: ");
-        break;
-    case "m":
-        MultiplicationGame("Multiplication game: ");
-        break;
-    case "d":
-        DivisionGame("Division game: ");
-        break;
-    case "q":
-        Console.WriteLine("You selected Quit");
-        Environment.Exit(1);
-        break;
-    default:
-        Console.WriteLine("You did not select a valid option");
-        break;
-}
-
 
 // METHODS
 
@@ -43,14 +18,42 @@ void Menu(string? name)
     Console.WriteLine("------------------------");
     Console.WriteLine(
         $"Hello {name.ToUpper()}. This is your math's game. That's great that you're working on improving yourself\n");
-    Console.WriteLine(@"What game would you like to play today? Choose from the options below:
+    var isGameOn = true;
+    do
+    {
+        Console.WriteLine(@"What game would you like to play today? Choose from the options below:
 A - Addition
 S - Subtraction
 M - Multiplication
 D - Division
 Q - Quit the program
 ");
-    Console.WriteLine("------------------------");
+        Console.WriteLine("------------------------");
+        string gameSelected = Console.ReadLine();
+
+        switch (gameSelected.Trim().ToLower())
+        {
+            case "a":
+                AdditionGame("Addition game: ");
+                break;
+            case "s":
+                SubtractionGame("Subtraction game: ");
+                break;
+            case "m":
+                MultiplicationGame("Multiplication game: ");
+                break;
+            case "d":
+                DivisionGame("Division game: ");
+                break;
+            case "q":
+                Console.WriteLine("You selected Quit");
+                isGameOn = false;
+                break;
+            default:
+                Console.WriteLine("You did not select a valid option");
+                break;
+        }
+    } while (isGameOn);
 }
 
 void AdditionGame(string message)
