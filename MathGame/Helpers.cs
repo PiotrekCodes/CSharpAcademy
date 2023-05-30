@@ -1,8 +1,10 @@
-﻿namespace MathGame;
+﻿using MathGame.Models;
+
+namespace MathGame;
 
 public class Helpers
 {
-    private static readonly List<string> games = new();
+    private static readonly List<Game> games = new();
 
     public static void GetGames()
     {
@@ -10,7 +12,7 @@ public class Helpers
         Console.WriteLine("------------------------");
         Console.WriteLine("Games History");
 
-        foreach (string game in games) Console.WriteLine(game);
+        foreach (var game in games) Console.WriteLine($"{game.Date} - {game.Type}: {game.Score} pts.");
         Console.WriteLine("------------------------\n");
         Console.WriteLine("Press any key to return to Main Menu");
         Console.ReadLine();
@@ -19,7 +21,13 @@ public class Helpers
 
     public static void AddToHistory(int gameScore, string gameType)
     {
-        games.Add($"{DateTime.Now} - {gameType}: {gameScore} pts");
+        games.Add(new Game
+            {
+                Date = DateTime.Now,
+                Score = gameScore,
+                Type = gameType
+            }
+        );
     }
 
     public static int[] GetDivisionNumbers()
