@@ -17,6 +17,10 @@ public class GameEngine
 
             Console.WriteLine($"{firstNumber} + {secondNumber}");
             string result = Console.ReadLine();
+
+            result = Helpers.ValidateResult(result);
+
+
             if (int.Parse(result) == firstNumber + secondNumber)
             {
                 score++;
@@ -49,6 +53,7 @@ public class GameEngine
 
             Console.WriteLine($"{firstNumber} - {secondNumber}");
             string result = Console.ReadLine();
+            result = Helpers.ValidateResult(result);
             if (int.Parse(result) == firstNumber - secondNumber)
             {
                 score++;
@@ -81,6 +86,7 @@ public class GameEngine
 
             Console.WriteLine($"{firstNumber} * {secondNumber}");
             string result = Console.ReadLine();
+            result = Helpers.ValidateResult(result);
             if (int.Parse(result) == firstNumber * secondNumber)
             {
                 score++;
@@ -112,6 +118,7 @@ public class GameEngine
 
             Console.WriteLine($"{firstNumber} / {secondNumber}");
             string result = Console.ReadLine();
+            result = Helpers.ValidateResult(result);
 
             if (int.Parse(result) == firstNumber / secondNumber)
             {
