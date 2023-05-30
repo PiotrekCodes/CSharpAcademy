@@ -1,4 +1,6 @@
-﻿namespace MathGame;
+﻿using MathGame.Models;
+
+namespace MathGame;
 
 public class GameEngine
 {
@@ -31,7 +33,7 @@ public class GameEngine
             }
         }
 
-        Helpers.AddToHistory(score, "Addition");
+        Helpers.AddToHistory(score, GameType.Addition);
     }
 
     public void SubtractionGame(string message)
@@ -63,7 +65,7 @@ public class GameEngine
             }
         }
 
-        Helpers.AddToHistory(score, "Subtraction");
+        Helpers.AddToHistory(score, GameType.Subtraction);
     }
 
     public void MultiplicationGame(string message)
@@ -95,7 +97,7 @@ public class GameEngine
             }
         }
 
-        Helpers.AddToHistory(score, "Multiplication");
+        Helpers.AddToHistory(score, GameType.Multiplication);
     }
 
     public void DivisionGame(string message)
@@ -127,6 +129,6 @@ public class GameEngine
             }
         }
 
-        Helpers.AddToHistory(score, "Division");
+        Helpers.AddToHistory(score, GameType.Division);
     }
 }

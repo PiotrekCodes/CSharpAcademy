@@ -19,7 +19,7 @@ public class Helpers
     }
 
 
-    public static void AddToHistory(int gameScore, string gameType)
+    public static void AddToHistory(int gameScore, GameType gameType)
     {
         games.Add(new Game
             {
